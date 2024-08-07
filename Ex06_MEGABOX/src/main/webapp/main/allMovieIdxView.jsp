@@ -1,6 +1,10 @@
+<%@page import="com.example.demo.service.ReviewServiceImpl"%>
+<%@page import="com.example.demo.dto.ReviewDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +17,20 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/header.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/footer.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/allMovieIdx.css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/webjars/axios/1.7.2/dist/axios.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/webjars/jquery/3.7.1/dist/jquery.min.js"></script>
 <script defer src="${pageContext.request.contextPath }/static/js/header.js"></script>
 <script defer src="${pageContext.request.contextPath }/static/js/allMovieIdx.js"></script>
 <script defer src="${pageContext.request.contextPath }/static/js/youtube.js"></script>
 </head>
 <body>
+	<%
+		int movieRef = Integer.parseInt(request.getParameter("movieIdx"));
+		List<ReviewDTO> vo = ReviewServiceImpl.getInstance().selectType("recently", movieRef);
+		pageContext.setAttribute("review", vo);
+	%>
 	<jsp:include page="../include/header.jsp"/>
+	<input type="hidden" value="${vo.movieIdx }" id="movieIdx"/>
 	<div class="allMovieContainer">
 		<div class="hidden-inner"></div>
 		<div class="inner">
@@ -94,7 +106,7 @@
 						<div class="review-menuBar">
 							<div class="review-total">전체 <span>2,912</span>건</div>
 							<div class="review-rank">
-								<div class="review-item">최신순</div>
+								<div class="review-item selected">최신순</div>
 								<div class="review-item">공감순</div>
 								<div class="review-item">평점순</div>
 							</div>
@@ -108,11 +120,21 @@
 							</div>
 							<div class="info-btn"><a href="javascript:void(0)" onclick='review_insert("${sessionScope.name}")'>관람평쓰기</a></div>
 						</div>
-						<div class="review-main">
-							<div class="review-img"><img src="https://img.megabox.co.kr/static/pc/images/mypage/bg-profile.png" alt=""><p>MEGABOX</p></div>
-							<div class="review-rate">관람평</div>
-							<div class="review-rate number">10</div>
-							<div class="review-content">대박이에요</div>
+						<div id="resultDiv">
+							<c:forEach var="vo" items="${review }">
+								<div class="review-main">
+									<div class="review-img"><img src="https://img.megabox.co.kr/static/pc/images/mypage/bg-profile.png" alt=""><p>${vo.userId }</p></div>
+									<div class="review-rate">관람평</div>
+									<div class="review-rate number">${vo.movieLike }</div>
+									<div class="review-content">${vo.title }</div>
+									<div class="review-like">
+										<img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-like-g.png" alt="">
+										<input type="hidden" id="idx" value="${vo.reviewIdx }"/>
+										<span class="review-like-value">${vo.reviewLike }</span>
+									</div>
+									
+								</div>							
+							</c:forEach>
 						</div>
 					</div>
 				</div>
