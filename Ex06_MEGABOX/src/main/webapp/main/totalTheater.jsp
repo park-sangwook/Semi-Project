@@ -9,7 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="icon" href="https://www.megabox.co.kr/static/pc/images/favicon.ico">
+<title>MEET PLAY SHARE, 메가박스</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/totalTheater.css">
 <script defer src="${pageContext.request.contextPath }/static/js/totalTheater.js"></script>

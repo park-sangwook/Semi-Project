@@ -116,7 +116,7 @@
                                 <ul class="sup-list-content">
                                     <li><a href="ticketing.jsp">빠른예매</a></li>
                                     <li><a href="timetable.jsp">상영시간표</a></li>
-                                    <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                                    <li><a href="boutique.jsp">더 부티크 프라이빗 예매</a></li>
                                 </ul>
                             </li>
                             <li>
