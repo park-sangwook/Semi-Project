@@ -33,4 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectByReviewIdx" parameterType="int" resultType="ReviewDTO">
 		select * from review where reviewidx=#{reviewIdx}
 	</select>
+	
+	<insert id="insertReview" parameterType="ReviewDTO">
+		insert into review values(reviewidx.nextval,#{title},0,#{movieRef},sysdate,#{userId},#{movieLike})
+	</insert>
 </mapper>

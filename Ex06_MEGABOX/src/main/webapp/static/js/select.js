@@ -323,11 +323,17 @@ function disableNextButton() {
 // 다음 페이지로 이동하는 함수
 function goToNextPage() {
 	let movieName = sessionStorage.getItem("movieName");
+	let roomLocation = sessionStorage.getItem("roomLocation");
+	let startTime = sessionStorage.getItem("startTime");
+	let endTime = sessionStorage.getItem("endTime");
 	axios.post('/Ex06_MEGABOX/main/payProcess.jsp',{
 		adultNumber,
 		teenagerNumber,
 		routeNumber,
-		'movieName' : ''+movieName
+		'movieName' : ''+movieName,
+		roomLocation,
+		startTime,
+		endTime
 	})
 	.then(()=>{
 	    window.location.href = '../main/pay.jsp';
@@ -489,11 +495,17 @@ function reset() {
 
 document.addEventListener("DOMContentLoaded",function(){
 	let movieName = sessionStorage.getItem("movieName");
+	let startTime = sessionStorage.getItem("startTime");
+	console.log("시간 : ",movieName);
+	console.log(startTime);
 	let div = document.querySelector(".info image");
 	document.querySelector(".info").children[0].children[0].textContent=movieName;
-	axios.get('allMovieIdxMovieName.jsp?name='+movieName)
+	axios.get(`selectSelect.jsp?name=${movieName}&openingDate=`+startTime)
 	.then(response=>{
 		console.log(response.data);
-		$(".movie-image").html($("<img src='"+response.data[0].image+"'/>"));
+		let today = new Date(response.data.OPENINGDATE);
+		today = today.getFullYear()+"."+String(today.getMonth()+1).padStart(2,"0")+"."+String(today.getDate()).padStart(2,"0");
+		$(".main-area").html("<p>"+response.data.LOCATION_NAME+"</p><p>"+response.data.ROOM_LOCATION+"</p><p>"+today+"</p>");
+		$(".movie-image").html($("<img src='"+response.data.image+"'/>"));
 	})
 })

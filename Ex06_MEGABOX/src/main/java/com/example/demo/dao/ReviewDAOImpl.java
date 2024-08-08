@@ -32,5 +32,9 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public ReviewDTO selectByReviewIdx(SqlSession s, int idx) throws SQLException {
 		return s.selectOne("review.selectByReviewIdx",idx);
 	}
+	@Override
+	public void insertReview(SqlSession s, ReviewDTO vo) throws SQLException {
+		s.insert("review.insertReview",vo);
+	}
 	
 }

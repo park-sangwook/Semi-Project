@@ -86,5 +86,19 @@ public class ReviewServiceImpl implements ReviewService{
 		}
 		return vo;
 	}
+	@Override
+	public void insertReview(ReviewDTO vo) {
+		SqlSession s = null;
+		try {
+			s = MybatisConnection.getSqlSessionFactory().openSession(false);
+			ReviewDAOImpl.getInstance().insertReview(s, vo);
+			s.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			s.rollback();
+		}finally {
+			s.close();
+		}
+	}
 
 }

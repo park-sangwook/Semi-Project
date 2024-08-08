@@ -12,6 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<!-- 중복제거된 리스트에서 각 영화에 맞게 출력? -->
 	<select id="selectTheaterSecond" parameterType="hashmap" resultType="TimeTableDTO">
-		SELECT ROOM_LOCATION FROM TIMETABLE t WHERE LOCATION_NAME ='군자' AND MOVIE_IDX =1 GROUP BY ROOM_LOCATION order by room_location
+		SELECT ROOM_LOCATION FROM TIMETABLE t WHERE LOCATION_NAME =#{location_name} AND MOVIE_IDX =#{movie_idx} GROUP BY ROOM_LOCATION order by room_location
+	</select>
+	
+	<!-- 빠른예매 영화에 따른 시간 보여주기 -->
+	<select id="selectTicketing" parameterType="hashmap" resultType="TimeTableDTO">
+		SELECT * FROM TIMETABLE t WHERE MOVIE_IDX = (SELECT MOVIEIDX FROM movie WHERE name=#{movieName}) AND LOCATION_NAME =#{location_name} order by room_location
 	</select>
 </mapper>

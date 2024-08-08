@@ -12,5 +12,6 @@ public interface ReviewDAO {
 	List<ReviewDTO> selectMovieRef(SqlSession s,int idx)throws SQLException;
 	ReviewDTO selectByReviewIdx(SqlSession s,int idx)throws SQLException;
 	void updateLike(SqlSession s,HashMap<String, Object> map)throws SQLException;
+	void insertReview(SqlSession s,ReviewDTO vo)throws SQLException;
 	List<ReviewDTO> selectType(SqlSession s,HashMap<String, Object> map)throws SQLException;
 }

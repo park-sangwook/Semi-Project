@@ -12,4 +12,5 @@ public interface TimeTableDAO {
 	List<TimeTableDTO> selectMovieName(SqlSession s,HashMap<String, Object> map)throws SQLException;
 	List<TimeTableDTO> selectTheaterFirst(SqlSession s,String location_name)throws SQLException;
 	List<TimeTableDTO> selectTheaterSecond(SqlSession s,HashMap<String, Object> map)throws SQLException;
+	List<TimeTableDTO> selectTicketing(SqlSession s,HashMap<String, Object> map)throws SQLException;
 }

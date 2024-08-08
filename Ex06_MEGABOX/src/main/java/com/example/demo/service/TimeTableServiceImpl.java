@@ -74,4 +74,23 @@ public class TimeTableServiceImpl implements TimeTableService{
 		}
 		return vo;
 	}
+	@Override
+	public List<TimeTableDTO> selectTicketing(String movieName, String locationName) {
+		SqlSession s = null;
+		List<TimeTableDTO> vo = null;
+		try {
+			s = MybatisConnection.getSqlSessionFactory().openSession(false);
+			HashMap<String, Object> map = new HashMap<>();
+			map.put("location_name", locationName);
+			map.put("movieName", movieName);
+			vo = TimeTableDAOImpl.getInstance().selectTicketing(s, map);
+			s.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			s.rollback();
+		}finally {
+			s.close();
+		}
+		return vo;
+	}
 }

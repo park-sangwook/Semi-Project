@@ -26,4 +26,8 @@ public class TimeTableDAOImpl implements TimeTableDAO{
 	public List<TimeTableDTO> selectTheaterSecond(SqlSession s, HashMap<String, Object> map) throws SQLException {
 		return s.selectList("timetable.selectTheaterSecond",map);
 	}
+	@Override
+	public List<TimeTableDTO> selectTicketing(SqlSession s, HashMap<String, Object> map) throws SQLException {
+		return s.selectList("timetable.selectTicketing",map);
+	}
 }

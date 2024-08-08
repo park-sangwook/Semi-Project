@@ -118,7 +118,7 @@
 								<p>관람일 기준 7일 이내 등록 시 50P 가 적립됩니다.</p>
 								<p>포인트는 관람평 최대 10편 지급가능합니다.</p>
 							</div>
-							<div class="info-btn"><a href="javascript:void(0)" onclick='review_insert("${sessionScope.name}")'>관람평쓰기</a></div>
+							<div class="info-btn"><a href="javascript:void(0)" onclick='review_insert("${sessionScope.name}",${vo.movieIdx })'>관람평쓰기</a></div>
 						</div>
 						<div id="resultDiv">
 							<c:forEach var="vo" items="${review }">

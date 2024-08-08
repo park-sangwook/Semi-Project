@@ -9,6 +9,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectByIdx" parameterType="int" resultType="MovieDTO">
 		select * from movie where movieIdx=#{idx}
 	</select>
+	<resultMap type="hashmap" id="selectMap">
+		<result property="locationName" column="T.LOCATION_NAME"/>
+		<result property="roomLocation" column="T.ROOM_LOCATION"/>
+		<result property="startTime" column="T.START_TIME"/>
+		<result property="image" column="M.IMAGE" jdbcType="CLOB" javaType="java.lang.String"/>
+	</resultMap>
+	<select id="selectTicketing" parameterType="hashmap" resultType="hashmap">
+		SELECT t.LOCATION_NAME,t.ROOM_LOCATION,M.OPENINGDATE FROM TIMETABLE t,movie m WHERE m.MOVIEIDX =t.MOVIE_IDX
+		and to_char(t.start_time,'HH24:MI')=#{openingDate} and m.name=#{name}
+	</select>
 	<select id="selectMovieName" parameterType="String" resultType="MovieDTO">
 		select * from movie  
 		<if test="name!='' and name!=null">
@@ -16,5 +26,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>		
 		order by movieIdx
 	</select>
-	
 </mapper>

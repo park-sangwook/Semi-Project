@@ -215,7 +215,15 @@ function bankPay() {
     }
 }
 
-
+document.addEventListener("DOMContentLoaded",function(){
+	const startTime = sessionStorage.getItem("startTime");
+	const location = sessionStorage.getItem("location");
+	const endTime = sessionStorage.getItem("endTime");
+	const roomLocation = sessionStorage.getItem("roomLocation");
+	const date = document.querySelector(".ticket-container .movie-date p:last-child");
+	date.textContent=startTime+'~'+endTime;
+	document.querySelector(".movie-area >p").textContent=location+"/"+roomLocation+"/2D";
+})
 function payment(){
 	alert("결제가 완료되었습니다.");
 	location.href="main.jsp";

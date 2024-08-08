@@ -9,4 +9,5 @@ public interface ReviewService {
 	List<ReviewDTO> selectType(String type,int movieRef);
 	ReviewDTO selectByReviewIdx(int reviewIdx);
 	void updateLike(String type,int movieIdx);
+	void insertReview(ReviewDTO vo);
 }

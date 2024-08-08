@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script type="text/javascript" src="${pageContext.request.contextPath }/webjars/axios/1.7.2/dist/axios.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/webjars/jquery/3.7.1/dist/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Gothic&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/ticketing.css">
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
@@ -1020,19 +1022,6 @@
                         <div class="time-menu-bottom">
                             <div class="movie-time">
                                 <div class="time-show">
-                                    <div class="time">
-                                        <p>18:20</p>
-                                        <p>~20:37</p>
-                                    </div>
-                                    <div class="info" onclick="selectFunction('${sessionScope.name}')">
-                                        <p>파일럿</p>
-                                        <p>2D</p>
-                                    </div>
-                                    <div class="area">
-                                        <p>강동</p>
-                                        <p>1관</p>
-                                        <p>236/249</p>
-                                    </div>
                                 </div>
                             </div>
                             <div class="bottom-menu">
@@ -1075,6 +1064,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="ticketing_id" value="${sessionScope.name }"/>
     </main>
     <%@ include file="../include/footer.jsp" %>
 </body>

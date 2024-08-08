@@ -544,7 +544,6 @@ document.querySelectorAll('.theater-menu .sub-middle-menu .second-menu-item').fo
         if(theaterSecondMaxNumber < 3) {
             item.classList.add('selected');
             theaterSecondMaxNumber++
-            console.log('theaterSecondMaxNumber: ' + theaterSecondMaxNumber);
         } else {
             alert('최대개수를 선택하였습니다');
         }
@@ -571,12 +570,16 @@ document.querySelectorAll('.theater-menu .sub-middleSecond-menu .second-menu-ite
 
 
 
-function selectFunction(name){
+function selectFunction(name,obj){
 	console.log(name);
 	if(name==null || name.length==0){
 		alert("로그인후 이용가능합니다.");
 		return false;
 	}
+	sessionStorage.setItem("startTime",obj.startTime);
+	sessionStorage.setItem("endTime",obj.endTime);
+	sessionStorage.setItem("roomLocation",obj.roomLocation);
+	sessionStorage.setItem("location",obj.location);
 	location.href="select.jsp";
 }
 
@@ -585,4 +588,49 @@ document.addEventListener("DOMContentLoaded",function(){
 	if(div!=null){
 		sessionStorage.setItem("movieName",div.children[0].textContent);		
 	}
+})
+
+
+
+
+
+const secondMenuItem = document.querySelectorAll(".second-menu-item");
+secondMenuItem.forEach(item=>{
+	item.addEventListener("click",function(){
+		if(this.classList.contains("selected")){
+			const location = this.children[0].textContent;
+			const movieName = (document.querySelector(".first-menu-item.selected>p").textContent);
+			let total = $("<div></div>");
+			const id = document.querySelector("#ticketing_id").value;
+			axios.get(`selectTicketing.jsp?name=${movieName}&locationName=${location}`)
+			.then(response=>{
+				const data = (response.data);
+				console.log(data);
+				data.forEach(it=>{
+					let div = $("<div class='time-show'></div>");
+					const start = new Date(it.start_time);
+					const start_time=String(start.getHours()).padStart(2,"0")+":"+String(start.getMinutes()).padStart(2,"0");
+					const end = new Date(it.end_time);
+					const end_time=String(end.getHours()).padStart(2,"0")+":"+String(end.getMinutes()).padStart(2,"0");
+					let time = $("<div class='time'><p>"+start_time+"</p><p>~"+String(end.getHours()).padStart(2,"0")+":"+String(end.getMinutes()).padStart(2,"0")+"</p></div>");
+					const obj = {};
+					obj.movieName=movieName;
+					obj.startTime=start_time;
+					obj.endTime=end_time;
+					obj.roomLocation=it.room_location;
+					obj.location=location;
+					let info = $("<div class='info' onclick='selectFunction(\""+id+"\","+JSON.stringify(obj)+")'><p>"+location+"</p><p>2D</p></div>");
+					let area = $("<div class='area'><p>"+location+"</p><p>"+it.room_location+"</p></div>");
+					div.append(time);
+					div.append(info);
+					div.append(area);
+					total.append(div);
+				})
+				$(".movie-time").html(total);
+			})
+			.catch(error=>console.log(error));
+		}else{
+				$(".movie-time").html("");			
+		}
+	})
 })

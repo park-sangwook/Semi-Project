@@ -12,12 +12,12 @@ movieMain.forEach((item, index) => {
 
 	})
 })
-function review_insert(name) {
+function review_insert(name,movieIdx) {
 	if (name == null || name == '') {
 		alert("로그인후 이용가능합니다.");
 		return false;
 	}
-	location.href = 'reviewInsert.jsp';
+	location.href = 'writeForm.jsp?movieIdx='+movieIdx;
 }
 function debounce(func, timeout) {
 	let timer;
