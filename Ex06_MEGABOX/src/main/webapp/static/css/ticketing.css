@@ -1,4 +1,4 @@
-.movie-menu .sub-middle-menu .first-menu-item.selected {
+.movie-menu .sub-middle-menu .first-menu-item p.selected {
     background-color: rgb(51, 51, 51);
 }
 
@@ -84,7 +84,7 @@ main .box .ticketing-container .ticketing-select .swiper-container .swiper-wrapp
 
 main .box .ticketing-container .ticketing-select .swiper-container .swiper-wrapper .swiper-slide {
     width: 120px;
-    height: 100%;
+    height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -794,4 +794,61 @@ main .home-menu .select-menu .select2 .material-symbols-outlined {
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------- 극장 -----------------*/
+.theater-list{
+    height: 300px;
+}
+.theater-list li{
+    padding: 5px 0;
+    cursor: pointer;
+}
+.theater-list li h2{
+    font-size: .9em;
+    padding: 5px 0;
+    width: 150px;
+    cursor: pointer;
+}
+.theater-list li h2.selected{
+    background-color: #ebebeb;
+}
+.theater-list ul{
+    display: none;
+    position: absolute;
+    right: 0px;
+    top:50px;
+    font-size: .9em;
+    height: 300px;
+    overflow-y: scroll;
+}
+.theater-list ul li{
+    width: 143px;
+}
+.swiper-slide{
+	height: 0px;
+}
+.swiper-slide.calendar{
+	height: 56px;
+}
+.swiper-slide.calendar.selected{
+	border-bottom: 2px solid #503396;
+}
+.theater-location li.selected{
+	color: #fff;
+    background-color: #666;
 }

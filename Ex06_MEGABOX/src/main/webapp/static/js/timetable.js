@@ -79,7 +79,7 @@ function getDataSource(){
                 try {
                     const response2 = await axios.get(`selectMovieName.jsp?type=${type}&location_name=${it.location_name}&movie_idx=${it.movie_idx}&room_location=${it.room_location}&time=${currTime}`);
                     let result2 = response2.data;
-
+                    console.log("result2 : ",result2);
                     theaterArea.append($("<div class='item'>2D(자막)</div>"));
 
                     for (const it2 of result2) {
@@ -87,7 +87,14 @@ function getDataSource(){
                         let startMovieTime = String(date.getHours()).padStart(2, "0") + ":" + String(date.getMinutes()).padStart(2, "0");
                         let date2 = new Date(it2.end_time);
                         let endMovieTime = String(date2.getHours()).padStart(2, "0") + ":" + String(date2.getMinutes()).padStart(2, "0");
-                        theaterArea.append($("<div class='item'><div class='item-wrapper'>"+startMovieTime+"~"+endMovieTime+"</div><div class='item-box'><div class='start-time'>" + String(date.getHours()).padStart(2, "0") + ":" + String(date.getMinutes()).padStart(2, "0") + "</div><div class='remain-chair'>220석</div></div></div>"));
+                        const obj = {
+							'startTime':startMovieTime,
+							'endTime':endMovieTime,
+							'movieName':it2.name,
+							'roomLocation':it2.room_location,
+							'location':it2.location_name
+						};
+                        theaterArea.append($("<div class='item'><div class='item-wrapper' onclick='selectFunction("+JSON.stringify(obj)+")'>"+startMovieTime+"~"+endMovieTime+"</div><div class='item-box'><div class='start-time'>" + String(date.getHours()).padStart(2, "0") + ":" + String(date.getMinutes()).padStart(2, "0") + "</div><div class='remain-chair'>220석</div></div></div>"));
                     }
 
                     container.append(theaterBox);
@@ -106,6 +113,14 @@ function getDataSource(){
 	}).catch(error => console.log(error));
 
     
+}
+function selectFunction(obj){
+	sessionStorage.setItem("startTime",obj.startTime);
+	sessionStorage.setItem("endTime",obj.endTime);
+	sessionStorage.setItem("movieName",obj.movieName);
+	sessionStorage.setItem("roomLocation",obj.roomLocation);
+	sessionStorage.setItem("location",obj.location);
+	location.href="select.jsp";
 }
 // 극장별
 const categoryTitle = document.querySelectorAll(".theater>span");
@@ -149,6 +164,7 @@ function getTheaterSource(){
                 try {
                     const response2 = await axios.get(`selectMovieName.jsp?type=${type}&location_name=${location_name}&movie_idx=${movie_idx}&room_location=${it.room_location}&time=${currTime}`);
                     let result2 = response2.data;
+                    console.log("result2 : ",result2);
                     theaterArea.append($("<div class='item'>2D(자막)</div>"));
 
                     for (const it2 of result2) {

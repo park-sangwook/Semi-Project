@@ -51,7 +51,7 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                         	<c:forEach var="calendar" items="${calendar }">
-	                            <div class="swiper-slide">
+	                            <div class="swiper-slide calendar">
 	                                <p>${calendar.day}&bull;${calendar.dayOfWeek }</p>
 	                            </div>                        	
                         	</c:forEach>
@@ -159,414 +159,74 @@
                                     <p>특별관</p>
                                 </div>
                             </div>
-                            <div class="sub-middle-menu">
-                                <div class="middle-first-menu">
-                                    <div onclick="theaterSeoul()" class="first-menu-item">
-                                        <p>서울</p>
-                                        <p>(20)</p>
-                                    </div>
-                                    <div onclick="theaterGyeonggi()" class="first-menu-item">
-                                        <p>경기</p>
-                                        <p>(33)</p>
-                                    </div>
-                                    <div onclick="theaterIncheon()" class="first-menu-item">
-                                        <p>인천</p>
-                                        <p>(6)</p>
-                                    </div>
-                                    <div onclick="theaterDaejeon()" class="first-menu-item">
-                                        <p>대전/충청/세종</p>
-                                        <p>(17)</p>
-                                    </div>
-                                    <div onclick="theaterBusan()" class="first-menu-item">
-                                        <p>부산/대구/경상</p>
-                                        <p>(26)</p>
-                                    </div>
-                                    <div onclick="theaterGwangju()" class="first-menu-item">
-                                        <p>광주/전라</p>
-                                        <p>(9)</p>
-                                    </div>
-                                    <div onclick="theaterGangwon()" class="first-menu-item">
-                                        <p>강원</p>
-                                        <p>(4)</p>
-                                    </div>
-                                    <div onclick="theaterJeju()" class="first-menu-item">
-                                        <p>제주</p>
-                                        <p>(3)</p>
-                                    </div>
-                                </div>
-                                <div class="middle-second-menu">
-                                    <div class="seoul-area">
-                                        <div class="second-menu-item">
-                                            <p>강남</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>강동</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>군자</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>더 부티크 목동 현대백화점</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>동대문</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>마곡</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>목동</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>브로드웨이(신사)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>상봉</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>상암월드컵경기장</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>성수</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>센트럴</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>송파파크하비오</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>신촌</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>이수</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>창동</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>코엑스</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>홍대</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>화곡</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>artnine</p>
-                                        </div>
-                                    </div>
-                                    <div class="gyeonggi-area">
-                                        <div class="second-menu-item">
-                                            <p>고양스타필드</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>광명ak플라자</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>광명소하</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>금정ak플라자</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>김포한강신도시</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>남양주</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>남양주현대아울렛 스페이스원</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>동탄</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>미사강변</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>백석벨라시타</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>별내</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>부천스타필드시티</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>분당</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원ak플라자</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원남문</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원스타필드</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원인계</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>수원호매실</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>시흥배곧</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>안산중앙</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>안성스타필드</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>양주</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>용인기흥</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>용인테크노밸리</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>의정부민락</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>일산</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>킨텍스</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>파주금촌</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>파주운정</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>파주출판도시</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>평택비전</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>하남스타필드</p>
-                                        </div>
-                                    </div>
-                                    <div class="incheon-area">
-                                        <div class="second-menu-item">
-                                            <p>검단</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>송도</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>영종</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>영종하늘도시</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>인천논현</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>청라지젤</p>
-                                        </div>
-                                    </div>
-                                    <div class="daejeon-area">
-                                        <div class="second-menu-item">
-                                            <p>공주</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>논산</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대전</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대전신세계 아트앤사이언스</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대전유성</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대전중앙로</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대전현대아울렛</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>세종(조치원)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>세종나성</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>세종청사</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>오창</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>진천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>천안</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>청주사창</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>청주성안길</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>충주연수</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>홍성내포</p>
-                                        </div>
-                                    </div>
-                                    <div class="busan-area">
-                                        <div class="second-menu-item">
-                                            <p>경북도청</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>경산하양</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>구미강동</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>김천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>남포항</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대구세븐밸리(칠곡)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대구신세계(동대구)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대구이시아</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>대구프리미엄만경관</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>덕천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>마산(경남대)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>문경</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>부산극장</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>부산대</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>북대구(칠곡)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>사상</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>삼천포</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>양산</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>양산증산</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>울산</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>정관</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>진주(중안)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>창원</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>창원내서</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>포항</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>해운대(장산)</p>
-                                        </div>
-                                    </div>
-                                    <div class="gwangju-area">
-                                        <div class="second-menu-item">
-                                            <p>광주상무</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>광주하남</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>목포하당(포르모)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>순천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>여수웅천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>전대(광주)</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>전주객사</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>전주혁신</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>첨단</p>
-                                        </div>
-                                    </div>
-                                    <div class="gangwon-area">
-                                        <div class="second-menu-item">
-                                            <p>남춘천</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>속초</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>원주혁신</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>춘천석사</p>
-                                        </div>
-                                    </div>
-                                    <div class="jeju-area">
-                                        <div class="second-menu-item">
-                                            <p>제주삼화</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>제주서귀포</p>
-                                        </div>
-                                        <div class="second-menu-item">
-                                            <p>제주아라</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="theater-list">
+                                <li>
+                                    <h2>서울(20)</h2>
+                                    <ul class="theater-location">
+                                        <li>강남</li>
+                                        <li>강동</li>
+                                        <li>군자</li>
+                                        <li>더 부티크 목동현대백화점</li>
+                                        <li>동대문</li>
+                                        <li>마곡</li>
+                                        <li>목동</li>
+                                        <li>브로드웨이(신사)</li>
+                                        <li>상봉</li>
+                                        <li>상암월드컵경기장</li>
+                                        <li>성수</li>
+                                        <li>센트럴</li>
+                                        <li>송파파크하비오</li>
+                                        <li>신촌</li>
+                                        <li>이수</li>
+                                        <li>창동</li>
+                                        <li>코엑스</li>
+                                        <li>화곡</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>경기(33)</h2>
+                                    <ul class="theater-location">
+                                        <li>고양스타필드</li>
+                                        <li>광명ak플라자</li>
+                                        <li>광명소하</li>
+                                        <li>금정ak플라자</li>
+                                        <li>김포한강신도시</li>
+                                        <li>남양주</li>
+                                        <li>남양주현대아울렛 스페이스원</li>
+                                        <li>`동탄</li>
+                                        <li>미사강변</li>
+                                        <li>색석벨라시타</li>
+                                        <li>별내</li>
+                                        <li>부천스타필드시티</li>
+                                        <li>분당</li>
+                                        <li>수원</li>
+                                        <li>수원ak플라자</li>
+                                        <li>수원남문</li>
+                                        <li>수원스타필드</li>
+                                        <li>수원인계</li>
+                                        <li>수원호매실</li>
+                                        <li>시흥배곧</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>인천(6)</h2>
+                                </li>
+                                <li>
+                                    <h2>대전/충청/세종(17)</h2>
+                                </li>
+                                <li>
+                                    <h2>부산/대구/경상(26)</h2>
+                                </li>
+                                <li>
+                                    <h2>광주/전라(9)</h2>
+                                </li>
+                                <li>
+                                    <h2>강원(4)</h2>
+                                </li>
+                                <li>
+                                    <h2>제주(3)</h2>
+                                </li>
+                            </ul>
                             <div class="sub-middleSecond-menu">
                                 <div class="middle-first-menu">
                                     <div onclick="theaterDolbyCinema()" class="first-menu-item">

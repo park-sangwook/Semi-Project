@@ -324,12 +324,14 @@ function disableNextButton() {
 function goToNextPage() {
 	let movieName = sessionStorage.getItem("movieName");
 	let roomLocation = sessionStorage.getItem("roomLocation");
+	let location = sessionStorage.getItem("location");
 	let startTime = sessionStorage.getItem("startTime");
 	let endTime = sessionStorage.getItem("endTime");
 	axios.post('/Ex06_MEGABOX/main/payProcess.jsp',{
 		adultNumber,
 		teenagerNumber,
 		routeNumber,
+		location,
 		'movieName' : ''+movieName,
 		roomLocation,
 		startTime,

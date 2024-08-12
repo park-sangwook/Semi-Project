@@ -7,7 +7,8 @@
 <%
 	String movieName = request.getParameter("name");
 	String locationName = request.getParameter("locationName");
-	List<TimeTableDTO> vo = TimeTableServiceImpl.getInstance().selectTicketing(movieName, locationName);
+	String startTime = request.getParameter("startTime");
+	List<TimeTableDTO> vo = TimeTableServiceImpl.getInstance().selectTicketing(movieName, locationName,startTime);
 	Gson gson = new Gson();
 	out.println(gson.toJson(vo));
 %>

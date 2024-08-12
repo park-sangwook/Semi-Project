@@ -29,6 +29,8 @@
 			request.removeAttribute("id");
 		}
 		s.setAttribute("name", member.getName());
+		s.setAttribute("managerCode", member.getManagerCode());
+		System.out.println("결과 : "+member);
 		s.setMaxInactiveInterval(2*60*60);
 	}
 	response.sendRedirect("main.jsp");

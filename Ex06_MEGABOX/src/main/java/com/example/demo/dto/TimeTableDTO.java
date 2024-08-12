@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class TimeTableDTO {
 	private String location_name;
+	private String name;
 	private int movie_idx;
 	private Date start_time;
 	private String room_location;

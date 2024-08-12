@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from review where movieref=#{movieRef}
 		<choose>
 			<when test="type=='recently'">
-				order by regdate
+				order by regdate desc
 			</when>
 			<when test="type=='reviewLike'">
 				order by reviewlike desc

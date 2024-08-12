@@ -3,6 +3,7 @@
 <%
 	HttpSession s = request.getSession();
 	s.removeAttribute("name");	
+	s.removeAttribute("managerCode");	
 	s.setMaxInactiveInterval(0);
 	response.sendRedirect("main.jsp");
 %>

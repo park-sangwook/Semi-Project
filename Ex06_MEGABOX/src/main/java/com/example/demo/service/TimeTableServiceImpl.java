@@ -75,7 +75,7 @@ public class TimeTableServiceImpl implements TimeTableService{
 		return vo;
 	}
 	@Override
-	public List<TimeTableDTO> selectTicketing(String movieName, String locationName) {
+	public List<TimeTableDTO> selectTicketing(String movieName, String locationName,String startTime) {
 		SqlSession s = null;
 		List<TimeTableDTO> vo = null;
 		try {
@@ -83,6 +83,7 @@ public class TimeTableServiceImpl implements TimeTableService{
 			HashMap<String, Object> map = new HashMap<>();
 			map.put("location_name", locationName);
 			map.put("movieName", movieName);
+			map.put("startTime", startTime);
 			vo = TimeTableDAOImpl.getInstance().selectTicketing(s, map);
 			s.commit();
 		} catch (SQLException e) {
