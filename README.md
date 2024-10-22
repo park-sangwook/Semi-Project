@@ -6,6 +6,8 @@
 ### 개발기간
 ##### 2024.07.29 ~ 2024.08.10
 
+### 영상링크
+#### https://www.youtube.com/watch?v=NuzheGhbIvs
 ### 개발환경 🐈
 * JDK21
 * Tomcat 10
